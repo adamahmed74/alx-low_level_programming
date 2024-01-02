@@ -1,4 +1,7 @@
-#include <stdio.h>
+#include "main.h"
+/*0-putchar
+always return 
+*/
 int main(void)
 {
 _putchar('_');
