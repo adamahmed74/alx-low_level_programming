@@ -1,28 +1,23 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
- * print_sign - Prints the sign of a number.
- * @n: The number of which the sign will be printed.
- *
- * Return: 1 if the number is greater than zero,
- *         0 if the number is zero,
- *         -1 if the number is less than zero.
+ * print_to_98 - Prints all natural numbers from input to 98,
+ *               in order separated by a comma followed by a space.
+ * @n: The number to begin counting at.
  */
-int print_sign(int n)
+void print_to_98(int n)
 {
-	if (n > 0)
+	if (n >= 98)
 	{
-		_putchar('+');
-		return (1);
+		while (n > 98)
+			printf("%d, ", n--);
+		printf("%d\n", n);
 	}
-	else if (n == 0)
-	{
-		_putchar('0');
-		return (0);
-	}
+
 	else
 	{
-		_putchar('-');
-		return (-1);
+		while (n < 98)
+			printf("%d, ", n++);
+		printf("%d\n", n);
 	}
 }
