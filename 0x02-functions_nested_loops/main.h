@@ -1,8 +1,7 @@
-/**
-*File:main.h
-*Author:Pericles Adjovi
-*Desc:header file containing functions declaration
-*/
+#ifndef MAIN_H
+#define MAIN_H
+
+#include <stdio.h>
 
 void print_alphabet(void);
 void jack_bauer(void);
