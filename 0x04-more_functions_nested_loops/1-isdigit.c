@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 /**
  * _isupper - check if input is digit between 0-9
