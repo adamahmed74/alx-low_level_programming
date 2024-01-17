@@ -1,101 +1,38 @@
 #include "main.h"
 
 /**
-*strtow - splits a stirng into words
-*@str: string to be splitted
+* str_concat - a function that concatenates two strings.
+*@s1:First string
+*@s2:Second string
 *
-*Return: pointer to the array of splitted words
+*Return: NULL in case of failure , but pointer to new string in
+*case of success
 */
 
-char **strtow(char *str)
+char *str_concat(char *s1, char *s2)
 {
-char **split;
-int i, j = 0, temp = 0, size = 0, words = num_words(str);
+	char *concat_str;
+	int index, concat_index = 0,  len = 0;
 
-if (words == 0)
-return (NULL);
-split = (char **) malloc(sizeof(char *) * (words + 1));
-if (split != NULL)
-{
-for (i = 0; i <= len(str) && words; i++)
-{
-if ((str[i] != ' ') && (str[i] != '\0'))
-size++;
-else if (((str[i] == ' ') || (str[i] == '\0')) && i && (str[i - 1] != ' '))
-{
-split[j] = (char *) malloc(sizeof(char) * size + 1);
-if (split[j] != NULL)
-{
-while (temp < size)
-{
-split[j][temp] = str[(i - size) +temp];
-temp++;
-}
-split[j][temp] = '\0';
-size = temp = 0;
-j++;
-}
-else
-{
-while (j-- >= 0)
-free(split[j]);
-free(split);
-return (NULL);
-}
-}
-}
-split[words] = NULL;
-return (split);
-}
-else
-return (NULL);
-}
+	if (s1 == NULL)
+		s1 = "";
 
+	if (s2 == NULL)
+		s2 = "";
 
-/**
-* num_words - counts the number of words in str
-*@str: string to be used
-*
-*Return: number of words
-*/
-int num_words(char *str)
-{
-int i = 0, words = 0;
+	for (index = 0; s1[index] || s2[index]; index++)
+		len++;
 
-while (i <= len(str))
-{
-if ((str[i] != ' ') && (str[i] != '\0'))
-{
-i++;
-}
-else if (((str[i] == ' ') || (str[i] == '\0')) && i && (str[i - 1] != ' '))
-{
-words += 1;
-i++;
-}
-else
-{
-i++;
-}
-}
-return (words);
-}
+	concat_str = malloc(sizeof(char) * len);
 
-/**
-* len - returns length of str
-*@str: string to be counted
-*
-* Return: length of the string
-*/
+	if (concat_str == NULL)
+		return (NULL);
 
-int len(char *str)
-{
-int len = 0;
+	for (index = 0; s1[index]; index++)
+		concat_str[concat_index++] = s1[index];
 
-if (str != NULL)
-{
-while (str[len])
-len++;
-}
-return (len);
+	for (index = 0; s2[index]; index++)
+		concat_str[concat_index++] = s2[index];
+
+	return (concat_str);
 }
