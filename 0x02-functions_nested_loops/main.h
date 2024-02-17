@@ -1,7 +1,6 @@
+#include <stdio.h>
 #ifndef MAIN_H
 #define MAIN_H
-
-#include <stdio.h>
 
 void print_alphabet(void);
 void jack_bauer(void);
@@ -17,3 +16,5 @@ int _abs(int);
 int _abs(int);
 int add(int n, int m);
 int print_last_digit(int);
+
+#endif
